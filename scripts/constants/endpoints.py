@@ -1,0 +1,12 @@
+class Endpoints:
+    base_url = "/"
+    event_init_url = "/init_event"
+    app_base_url = "/apps"
+    template_base_url = "/templates"
+    camera_base_url = "/cameras"
+    list = "/list"
+    add = "/add"
+    update = "/update"
+    get = "/get"
+    delete = "/delete"
+    change_status = "/change_status"
