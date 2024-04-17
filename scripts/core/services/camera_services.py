@@ -29,7 +29,7 @@ def delete_camera(
     try:
         response = camera_handler_obj.delete_camera(request)
         return DefaultResponse(
-            message="Template Deleted Successfully", data=list(response)
+            message="Template Deleted Successfully", data=response
         )
     except Exception as e:
         logging.exception(e)
