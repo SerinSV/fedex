@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 
 from scripts.constants.endpoints import Endpoints
 from scripts.core.handlers import camera_handler_obj
-from scripts.core.schemas.camera_schema import AddCameraRequest
+from scripts.core.schemas.camera_schema import AddCameraRequest, DeleteCameraRequest
 from scripts.core.schemas.response_models import DefaultResponse, DefaultFailureResponse
 from scripts.core.utils.common_utils import CommonUtils
 
@@ -22,15 +22,15 @@ def add_camera(
         logging.exception(e)
         return DefaultFailureResponse(error="Unknown Error occurred")
 
-# @router.delete(Endpoints.base_url)
-# def delete_camera(
-#         request: DeleteCameraRequest, meta_info: MetaInfoSchema = Depends(meta)
-# ):
-#     try:
-#         response = CameraHandler(meta_info.project_id).delete_camera(request)
-#         return DefaultResponse(
-#             message="Template Deleted Successfully", data=list(response)
-#         )
-#     except Exception as e:
-#         logging.exception(e)
-#         return DefaultFailureResponse(error=ErrorMessages.UNKNOWN)
+@router.delete(Endpoints.base_url)
+def delete_camera(
+        request: DeleteCameraRequest
+):
+    try:
+        response = camera_handler_obj.delete_camera(request)
+        return DefaultResponse(
+            message="Template Deleted Successfully", data=list(response)
+        )
+    except Exception as e:
+        logging.exception(e)
+        return DefaultFailureResponse(error="Unknown Error occurred")
