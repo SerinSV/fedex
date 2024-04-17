@@ -142,7 +142,7 @@ class CameraHandler:
         return False
 
     def delete_camera(self, camera: DeleteCameraRequest):
-        self.remove_container(camera=camera)
+        return self.remove_container(camera=camera)
 
     def remove_container(self, camera: DeleteCameraRequest) -> Any:
         container_name = camera.camera_id
