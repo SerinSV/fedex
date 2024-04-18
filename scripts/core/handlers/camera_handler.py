@@ -158,4 +158,4 @@ class CameraHandler:
         return False
 
     def publish_data(self, data: PublishDataRequest):
-        MQTTPublisher(data.message, data.mqtt_topic).publish()
+        return MQTTPublisher(data.message, data.mqtt_topic).publish()
