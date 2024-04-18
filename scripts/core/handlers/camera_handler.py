@@ -5,9 +5,10 @@ from typing import Any
 from loguru import logger
 
 from scripts.core.schemas import DockerDeployment
-from scripts.core.schemas.camera_schema import AddCameraRequest, DeleteCameraRequest
+from scripts.core.schemas.camera_schema import AddCameraRequest, DeleteCameraRequest, PublishDataRequest
 from scripts.core.utils.common_utils import CommonUtils
 from scripts.core.utils.docker_utils import DockerManager
+from scripts.core.utils.mqtt_publish import MQTTPublisher
 
 
 class CameraHandler:
@@ -155,3 +156,6 @@ class CameraHandler:
             )
             return True
         return False
+
+    def publish_data(self, data: PublishDataRequest):
+        MQTTPublisher(data.message, data.mqtt_topic).publish()

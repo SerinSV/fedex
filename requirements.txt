@@ -17,3 +17,5 @@ pytz~=2023.3
 psycopg2-binary~=2.9.6
 jwt-signature-validator~=0.0.5
 setuptools~=65.5.1
+loguru~=0.7.2
+paho-mqtt~=1.6.1
