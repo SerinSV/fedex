@@ -37,14 +37,14 @@ def delete_camera(
         return DefaultFailureResponse(error="Unknown Error occurred")
 
 
-@router.get(Endpoints.base_url)
+@router.post(Endpoints.publish_url)
 def publish_data(
         request: PublishDataRequest
 ):
     try:
         response = camera_handler_obj.publish_data(request)
         return DefaultResponse(
-            message="Template Deleted Successfully", data=response
+            message="Data Pushed Successfully", data=response
         )
     except Exception as e:
         logging.exception(e)

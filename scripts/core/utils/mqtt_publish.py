@@ -21,7 +21,7 @@ class MQTTPublisher:
         client.on_connect = on_connect
 
         broker_address = "localhost"
-        topic = f"Fedex_{self.topic}"
+        topic = self.topic
 
         client.connect(broker_address, 1883, 300)
         result = client.publish(topic, self.message)
