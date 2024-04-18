@@ -14,4 +14,4 @@ app = FastAPI(title="Fedexxxxxxx", version="1")
 app.include_router(endpoint_router, prefix="")
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8008)
