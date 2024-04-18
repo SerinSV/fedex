@@ -1,10 +1,6 @@
-import datetime
-from typing import Optional, Any
+from typing import Optional
 
 from pydantic import BaseModel
-
-from scripts.core.utils.common_utils import CommonUtils
-
 
 class AddCameraRequest(BaseModel):
     camera_id: Optional[str]
@@ -22,5 +18,3 @@ class PublishDataRequest(BaseModel):
     mqtt_topic: Optional[str]
 
 
-# class DockerDetails(BaseModel):
-#     mount_vol: Optional[str] = None

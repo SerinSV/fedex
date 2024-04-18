@@ -3,11 +3,10 @@ if __name__ == "__main__":
 
     load_dotenv(dotenv_path='.env')
 
-import time
 import uvicorn
 from fastapi import FastAPI
 from scripts.core.services import router as endpoint_router
-from loguru import logger
+
 
 app = FastAPI(title="Fedexxxxxxx", version="1")
 

@@ -1,12 +1,12 @@
 import logging
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 
 from scripts.constants.endpoints import Endpoints
 from scripts.core.handlers import camera_handler_obj
 from scripts.core.schemas.camera_schema import AddCameraRequest, DeleteCameraRequest, PublishDataRequest
 from scripts.core.schemas.response_models import DefaultResponse, DefaultFailureResponse
-from scripts.core.utils.common_utils import CommonUtils
+
 
 router = APIRouter(prefix=Endpoints.camera_base_url, tags=["v1 | Camera"])
 

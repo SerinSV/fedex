@@ -29,8 +29,4 @@ class MQTTPublisher:
 
         client.disconnect()
 
-        print(self.publish_success if result[0] == mqtt.MQTT_ERR_SUCCESS else False)
-        print(mqtt.MQTT_ERR_SUCCESS)
-        print(result[0])
-
         return self.publish_success if result[0] == mqtt.MQTT_ERR_SUCCESS else False
