@@ -4,6 +4,7 @@ from loguru import logger
 
 class MQTTPublisher:
     def __init__(self, message, topic):
+        self.publish_success = None
         self.message = message
         self.topic = topic
 
