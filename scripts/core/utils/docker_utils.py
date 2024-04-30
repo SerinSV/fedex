@@ -123,27 +123,27 @@ class DockerManager(DockerUtility):
                 ),
             )
             if self.deployment_details.devices is not None:
-                docker_kwargs |= dict(devices=self.deployment_details.devices)
+                docker_kwargs.update(dict(devices=self.deployment_details.devices))
             if self.deployment_details.network is None:
-                docker_kwargs |= dict(network_mode=self.container_network_mode())
+                docker_kwargs .update(dict(network_mode=self.container_network_mode()))
             else:
-                docker_kwargs |= dict(network=self.deployment_details.network)
+                docker_kwargs.update(dict(network=self.deployment_details.network))
             if self.deployment_details.runtime:
-                docker_kwargs |= dict(runtime=self.deployment_details.runtime)
+                docker_kwargs.update(dict(runtime=self.deployment_details.runtime))
             if self.deployment_details.mem_limit is not None:
-                docker_kwargs |= dict(mem_limit=self.deployment_details.mem_limit)
+                docker_kwargs.update(dict(mem_limit=self.deployment_details.mem_limit))
             if self.deployment_details.mem_request:
-                docker_kwargs |= dict(
+                docker_kwargs.update(dict(
                     mem_reservation=self.deployment_details.mem_request
-                )
+                ))
             if self.deployment_details.cpu_request:
-                docker_kwargs |= dict(
+                docker_kwargs.update(dict(
                     cpu_quota=int(self.deployment_details.cpu_request * 1e5)
-                )
+                ))
             if self.deployment_details.cpu_limit:
-                docker_kwargs |= dict(
+                docker_kwargs.update(dict(
                     cpu_quota=int(self.deployment_details.cpu_limit * 1e5)
-                )
+                ))
 
             container = self.client.containers.run(
                 image=self.deployment_details.image, **docker_kwargs

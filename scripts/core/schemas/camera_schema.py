@@ -18,3 +18,5 @@ class PublishDataRequest(BaseModel):
     mqtt_topic: Optional[str]
 
 
+
+
