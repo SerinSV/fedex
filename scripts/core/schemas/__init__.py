@@ -29,10 +29,13 @@ class Deployment(BaseModel):
 
 class DockerDeployment(Deployment):
     cpu_shares: Optional[int] = Field(None, title="CPU shares")
+    cpu_count: Optional[int] = Field(None, title="CPU count")
     detach: Optional[bool] = Field(True, title="Detached mode")
     privileged: Optional[bool] = Field(None, title="Privileged mode")
     custom_url: Optional[str] = Field(None, title="Custom Docker Client URL")
     devices: Optional[list] = Field(None, title="Custom Docker Client URL")
+    device_requests: Optional[list] = Field(None, title="Custom Docker Client URL")
+
 
     @root_validator
     def restart_policy_update(cls, values):

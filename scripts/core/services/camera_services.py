@@ -7,7 +7,6 @@ from scripts.core.handlers import camera_handler_obj
 from scripts.core.schemas.camera_schema import AddCameraRequest, DeleteCameraRequest, PublishDataRequest
 from scripts.core.schemas.response_models import DefaultResponse, DefaultFailureResponse
 
-
 router = APIRouter(prefix=Endpoints.camera_base_url, tags=["v1 | Camera"])
 
 
@@ -16,8 +15,8 @@ def add_camera(
         request_data: AddCameraRequest
 ):
     try:
-        response = camera_handler_obj.add_camera(request_data)
-        return DefaultResponse(message="Camera Added Successfully", data=response)
+        container_name = camera_handler_obj.add_camera(request_data)
+        return DefaultResponse(message=f"Camera Added Successfully with container name {container_name}")
     except Exception as e:
         logging.exception(e)
         return DefaultFailureResponse(error="Unknown Error occurred")

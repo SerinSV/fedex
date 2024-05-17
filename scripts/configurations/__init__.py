@@ -23,6 +23,10 @@ class ContainerEngine(BaseSettings):
     class Config:
         env_prefix = "CONTAINER_ENGINE_"
 
+class Volume(BaseSettings):
+    volume: str
+
 
 ssh = Ssh()
 container_engine = ContainerEngine()
+volume = Volume()

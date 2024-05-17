@@ -6,7 +6,8 @@ class AddCameraRequest(BaseModel):
     camera_id: Optional[str]
     mqtt_topic: Optional[str]
     docker_image: Optional[str]
-    conf: Optional[float]
+    conf: Optional[str]
+    url: Optional[str]
 
 class DeleteCameraRequest(BaseModel):
     camera_id: Optional[str]

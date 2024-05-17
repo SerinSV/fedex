@@ -124,6 +124,8 @@ class DockerManager(DockerUtility):
             )
             if self.deployment_details.devices is not None:
                 docker_kwargs.update(dict(devices=self.deployment_details.devices))
+            if self.deployment_details.device_requests is not None:
+                docker_kwargs.update(dict(device_requests=self.deployment_details.device_requests))
             if self.deployment_details.network is None:
                 docker_kwargs .update(dict(network_mode=self.container_network_mode()))
             else:

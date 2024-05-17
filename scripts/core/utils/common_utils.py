@@ -68,7 +68,8 @@ class CommonUtils:
         _id = prefix
         timestamp = time.time()
         rand = random.randint(1000, 9999)
-        _id += str(int(timestamp)) + "_" + str(rand)
+        #_id += str(int(timestamp)) + "_" + str(rand)
+        _id += "_" + str(int(timestamp))
         return _id
 
     @staticmethod
