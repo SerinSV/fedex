@@ -4,8 +4,7 @@ from docker.errors import APIError, DockerException, NotFound
 from loguru import logger
 
 from scripts.core.exceptions.exception_codes import (
-    DockerExceptionCode as docker_exception,
-)
+    DockerExceptionCode as docker_exception)
 from scripts.core.exceptions.module_exceptions import DockerUnknownConnectionType
 from scripts.core.schemas import DockerDeployment
 from scripts.core.utils.common_utils import CommonUtils

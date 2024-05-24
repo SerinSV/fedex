@@ -86,7 +86,7 @@ class CameraHandler:
             {"TagName": "camera_id", "Value": data["camera_id"]}
         ]
 
-        timestamp = datetime.strptime(data["timestamp"], "%m/%d/%Y %H:%M:%S")
+        timestamp = datetime.strptime(data["timestamp"], "%d/%m/%Y %H:%M:%S")
 
         return {
             "records": records,

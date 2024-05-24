@@ -64,11 +64,9 @@ class CommonUtils:
     @staticmethod
     def generate_id(prefix):
         if not prefix:
-            prefix = "DATA_"
+            prefix = "Camera_"
         _id = prefix
         timestamp = time.time()
-        rand = random.randint(1000, 9999)
-        #_id += str(int(timestamp)) + "_" + str(rand)
         _id += "_" + str(int(timestamp))
         return _id
 

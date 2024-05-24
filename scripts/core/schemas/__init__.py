@@ -1,4 +1,4 @@
-from typing import Any, Dict, Literal, Optional
+from typing import Any, Dict, Optional
 
 from pydantic import BaseModel, Field, root_validator
 
@@ -33,8 +33,8 @@ class DockerDeployment(Deployment):
     detach: Optional[bool] = Field(True, title="Detached mode")
     privileged: Optional[bool] = Field(None, title="Privileged mode")
     custom_url: Optional[str] = Field(None, title="Custom Docker Client URL")
-    devices: Optional[list] = Field(None, title="Custom Docker Client URL")
-    device_requests: Optional[list] = Field(None, title="Custom Docker Client URL")
+    devices: Optional[list] = Field(None, title="Expose host devices to the container")
+    device_requests: Optional[list] = Field(None, title="Expose host resources such as GPUs to the container")
 
 
     @root_validator
@@ -51,18 +51,3 @@ class DockerDeployment(Deployment):
         return values
 
 
-class KubernetesDeployment(Deployment):
-    replicas: Optional[int] = Field(1, title="Number of pod replicas")
-    namespace: Optional[str] = Field("default", title="Namespace")
-    image_pull_policy: Optional[Literal["Always", "IfNotPresent", "Never"]]
-    image_pull_secrets: Optional[list] = Field([], title="Image Pull Secrets")
-
-    @root_validator
-    def restart_policy_update(cls, values):
-        if not values["restart_policy"] and values["restart_policy"] not in {
-            "Always",
-            "OnFailure",
-            "Never",
-        }:
-            values["restart_policy"] = "Always"
-        return values

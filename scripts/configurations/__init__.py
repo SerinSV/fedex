@@ -3,14 +3,10 @@ from pydantic import BaseSettings
 
 load_dotenv()
 
-class Ssh(BaseSettings):
-    host: str
-    port: int
-    username: str
-    password: str
+from dotenv import load_dotenv
+from pydantic import BaseSettings
 
-    class Config:
-        env_prefix = "SSH_"
+load_dotenv()
 
 
 class ContainerEngine(BaseSettings):
@@ -23,10 +19,10 @@ class ContainerEngine(BaseSettings):
     class Config:
         env_prefix = "CONTAINER_ENGINE_"
 
+
 class Volume(BaseSettings):
     volume: str
 
 
-ssh = Ssh()
 container_engine = ContainerEngine()
 volume = Volume()

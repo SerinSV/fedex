@@ -1,13 +1,9 @@
 import time
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 from pydantic import BaseModel
 
 from scripts.constants import STATUS
-
-
-def get_current_time():
-    return int(time.time() * 1000)
 
 
 class DefaultResponse(BaseModel):
@@ -20,8 +16,3 @@ class DefaultResponse(BaseModel):
 class DefaultFailureResponse(DefaultResponse):
     status: str = STATUS.FAILED
     error: Any
-
-
-class TableResponse(BaseModel):
-    headerContent: List
-    bodyContent: List
